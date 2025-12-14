@@ -37,6 +37,4 @@ amdhsa.kernels:
     .sgpr_count: [[sgpr_count]]
     .vgpr_count: [[vgpr_count]]
     .max_flat_workgroup_size: 256
-    .args:
-[[args_yaml]]
 .end_amdgpu_metadata

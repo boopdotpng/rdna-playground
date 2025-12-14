@@ -1,3 +1,4 @@
 rdna/*.o
 rdna/*.hsaco
 rdna/final.s
+__pycache__
