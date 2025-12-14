@@ -14,7 +14,7 @@ arch = dev.arch
 
 def build_hsaco(path: Path, args_yaml: str = "", kernarg_size: int = 0, kernarg_align: int = 16) -> bool:
   global arch
-  template = open(path/"template.s").read()
+  template = open(path/"template.hsaco").read()
   raw_rdna = open(path/"kernel.s").read()
 
   template = template.replace("[[arch]]", arch)

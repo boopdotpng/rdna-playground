@@ -1,4 +1,10 @@
 rdna/*.o
 rdna/*.hsaco
+!rdna/template.hsaco
 rdna/final.s
+rdna/reference_hip/
+hip/*.hsaco
+hip/*.hsaco.txt
+hip/*.disasm.txt
+hip/rdna.s
 __pycache__
