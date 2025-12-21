@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 cd "$SCRIPT_DIR"
 
 SRC="${2:-test.hip.cc}"
-OUT_DIR="${OUT_DIR:-"$SCRIPT_DIR/../rdna/reference_hip"}"
+OUT_DIR="${OUT_DIR:-"$SCRIPT_DIR/reference"}"
 mkdir -p "$OUT_DIR"
 
 detect_arch() {
@@ -86,7 +86,7 @@ awk '
     print "// " sym
     next
   }
-  /^[[:space:]]+[a-z][a-z0-9_.]*[[:space:]]/ {
+  /^[[:space:]]+[a-z][a-z0-9_.]*([[:space:]]|$)/ {
     line=$0
     sub(/^[[:space:]]+/, "", line)
     c=index(line, "//")

@@ -8,3 +8,4 @@ hip/*.hsaco.txt
 hip/*.disasm.txt
 hip/rdna.s
 __pycache__
+a.out

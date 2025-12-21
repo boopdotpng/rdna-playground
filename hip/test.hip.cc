@@ -35,6 +35,8 @@ int main() {
   std::printf("\n");
   for(auto i: output) std::printf("%.1f, ", i);
 
+  std::printf("\n");
+
   hipFree(d);
   hipFree(d_out);
   return 0;

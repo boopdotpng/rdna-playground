@@ -1,0 +1,818 @@
+# Source: test.hip.cc
+# Arch:   gfx1152
+# File:   /home/boop/code/ml/rdna-playground/hip/reference/rdna_only.hsaco
+
+# ---- llvm-readobj --all ----
+
+File: /home/boop/code/ml/rdna-playground/hip/reference/rdna_only.hsaco
+Format: elf64-amdgpu
+Arch: amdgcn
+AddressSize: 64bit
+LoadName: <Not found>
+ElfHeader {
+  Ident {
+    Magic: (7F 45 4C 46)
+    Class: 64-bit (0x2)
+    DataEncoding: LittleEndian (0x1)
+    FileVersion: 1
+    OS/ABI: AMDGPU_HSA (0x40)
+    ABIVersion: 4
+    Unused: (00 00 00 00 00 00 00)
+  }
+  Type: SharedObject (0x3)
+  Machine: EM_AMDGPU (0xE0)
+  Version: 1
+  Entry: 0x0
+  ProgramHeaderOffset: 0x40
+  SectionHeaderOffset: 0xD50
+  Flags [ (0x55)
+    EF_AMDGPU_MACH_AMDGCN_GFX1152 (0x55)
+  ]
+  HeaderSize: 64
+  ProgramHeaderEntrySize: 56
+  ProgramHeaderCount: 9
+  SectionHeaderEntrySize: 64
+  SectionHeaderCount: 15
+  StringTableSectionIndex: 13
+}
+Sections [
+  Section {
+    Index: 0
+    Name:  (0)
+    Type: SHT_NULL (0x0)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0x0
+    Size: 0
+    Link: 0
+    Info: 0
+    AddressAlignment: 0
+    EntrySize: 0
+  }
+  Section {
+    Index: 1
+    Name: .note (1)
+    Type: SHT_NOTE (0x7)
+    Flags [ (0x2)
+      SHF_ALLOC (0x2)
+    ]
+    Address: 0x238
+    Offset: 0x238
+    Size: 1292
+    Link: 0
+    Info: 0
+    AddressAlignment: 4
+    EntrySize: 0
+  }
+  Section {
+    Index: 2
+    Name: .dynsym (7)
+    Type: SHT_DYNSYM (0xB)
+    Flags [ (0x2)
+      SHF_ALLOC (0x2)
+    ]
+    Address: 0x748
+    Offset: 0x748
+    Size: 96
+    Link: 5
+    Info: 1
+    AddressAlignment: 8
+    EntrySize: 24
+  }
+  Section {
+    Index: 3
+    Name: .gnu.hash (15)
+    Type: SHT_GNU_HASH (0x6FFFFFF6)
+    Flags [ (0x2)
+      SHF_ALLOC (0x2)
+    ]
+    Address: 0x7A8
+    Offset: 0x7A8
+    Size: 40
+    Link: 2
+    Info: 0
+    AddressAlignment: 8
+    EntrySize: 0
+  }
+  Section {
+    Index: 4
+    Name: .hash (25)
+    Type: SHT_HASH (0x5)
+    Flags [ (0x2)
+      SHF_ALLOC (0x2)
+    ]
+    Address: 0x7D0
+    Offset: 0x7D0
+    Size: 40
+    Link: 2
+    Info: 0
+    AddressAlignment: 4
+    EntrySize: 4
+  }
+  Section {
+    Index: 5
+    Name: .dynstr (31)
+    Type: SHT_STRTAB (0x3)
+    Flags [ (0x2)
+      SHF_ALLOC (0x2)
+    ]
+    Address: 0x7F8
+    Offset: 0x7F8
+    Size: 56
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+  Section {
+    Index: 6
+    Name: .rodata (39)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x2)
+      SHF_ALLOC (0x2)
+    ]
+    Address: 0x840
+    Offset: 0x840
+    Size: 64
+    Link: 0
+    Info: 0
+    AddressAlignment: 64
+    EntrySize: 0
+  }
+  Section {
+    Index: 7
+    Name: .text (47)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x6)
+      SHF_ALLOC (0x2)
+      SHF_EXECINSTR (0x4)
+    ]
+    Address: 0x1900
+    Offset: 0x900
+    Size: 640
+    Link: 0
+    Info: 0
+    AddressAlignment: 256
+    EntrySize: 0
+  }
+  Section {
+    Index: 8
+    Name: .dynamic (53)
+    Type: SHT_DYNAMIC (0x6)
+    Flags [ (0x3)
+      SHF_ALLOC (0x2)
+      SHF_WRITE (0x1)
+    ]
+    Address: 0x2B80
+    Offset: 0xB80
+    Size: 112
+    Link: 5
+    Info: 0
+    AddressAlignment: 8
+    EntrySize: 16
+  }
+  Section {
+    Index: 9
+    Name: .relro_padding (62)
+    Type: SHT_NOBITS (0x8)
+    Flags [ (0x3)
+      SHF_ALLOC (0x2)
+      SHF_WRITE (0x1)
+    ]
+    Address: 0x2BF0
+    Offset: 0xBF0
+    Size: 1040
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+  Section {
+    Index: 10
+    Name: .bss (77)
+    Type: SHT_NOBITS (0x8)
+    Flags [ (0x3)
+      SHF_ALLOC (0x2)
+      SHF_WRITE (0x1)
+    ]
+    Address: 0x3BF0
+    Offset: 0xBF0
+    Size: 1
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+  Section {
+    Index: 11
+    Name: .comment (82)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x30)
+      SHF_MERGE (0x10)
+      SHF_STRINGS (0x20)
+    ]
+    Address: 0x0
+    Offset: 0xBF0
+    Size: 44
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 1
+  }
+  Section {
+    Index: 12
+    Name: .symtab (91)
+    Type: SHT_SYMTAB (0x2)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0xC20
+    Size: 120
+    Link: 14
+    Info: 2
+    AddressAlignment: 8
+    EntrySize: 24
+  }
+  Section {
+    Index: 13
+    Name: .shstrtab (99)
+    Type: SHT_STRTAB (0x3)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0xC98
+    Size: 117
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+  Section {
+    Index: 14
+    Name: .strtab (109)
+    Type: SHT_STRTAB (0x3)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0xD0D
+    Size: 65
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+]
+ProgramHeaders [
+  ProgramHeader {
+    Type: PT_PHDR (0x6)
+    Offset: 0x40
+    VirtualAddress: 0x40
+    PhysicalAddress: 0x40
+    FileSize: 504
+    MemSize: 504
+    Flags [ (0x4)
+      PF_R (0x4)
+    ]
+    Alignment: 8
+  }
+  ProgramHeader {
+    Type: PT_LOAD (0x1)
+    Offset: 0x0
+    VirtualAddress: 0x0
+    PhysicalAddress: 0x0
+    FileSize: 2176
+    MemSize: 2176
+    Flags [ (0x4)
+      PF_R (0x4)
+    ]
+    Alignment: 4096
+  }
+  ProgramHeader {
+    Type: PT_LOAD (0x1)
+    Offset: 0x900
+    VirtualAddress: 0x1900
+    PhysicalAddress: 0x1900
+    FileSize: 640
+    MemSize: 640
+    Flags [ (0x5)
+      PF_R (0x4)
+      PF_X (0x1)
+    ]
+    Alignment: 4096
+  }
+  ProgramHeader {
+    Type: PT_LOAD (0x1)
+    Offset: 0xB80
+    VirtualAddress: 0x2B80
+    PhysicalAddress: 0x2B80
+    FileSize: 112
+    MemSize: 1152
+    Flags [ (0x6)
+      PF_R (0x4)
+      PF_W (0x2)
+    ]
+    Alignment: 4096
+  }
+  ProgramHeader {
+    Type: PT_LOAD (0x1)
+    Offset: 0xBF0
+    VirtualAddress: 0x3BF0
+    PhysicalAddress: 0x3BF0
+    FileSize: 0
+    MemSize: 1
+    Flags [ (0x6)
+      PF_R (0x4)
+      PF_W (0x2)
+    ]
+    Alignment: 4096
+  }
+  ProgramHeader {
+    Type: PT_DYNAMIC (0x2)
+    Offset: 0xB80
+    VirtualAddress: 0x2B80
+    PhysicalAddress: 0x2B80
+    FileSize: 112
+    MemSize: 112
+    Flags [ (0x6)
+      PF_R (0x4)
+      PF_W (0x2)
+    ]
+    Alignment: 8
+  }
+  ProgramHeader {
+    Type: PT_GNU_RELRO (0x6474E552)
+    Offset: 0xB80
+    VirtualAddress: 0x2B80
+    PhysicalAddress: 0x2B80
+    FileSize: 112
+    MemSize: 1152
+    Flags [ (0x4)
+      PF_R (0x4)
+    ]
+    Alignment: 1
+  }
+  ProgramHeader {
+    Type: PT_GNU_STACK (0x6474E551)
+    Offset: 0x0
+    VirtualAddress: 0x0
+    PhysicalAddress: 0x0
+    FileSize: 0
+    MemSize: 0
+    Flags [ (0x6)
+      PF_R (0x4)
+      PF_W (0x2)
+    ]
+    Alignment: 0
+  }
+  ProgramHeader {
+    Type: PT_NOTE (0x4)
+    Offset: 0x238
+    VirtualAddress: 0x238
+    PhysicalAddress: 0x238
+    FileSize: 1292
+    MemSize: 1292
+    Flags [ (0x4)
+      PF_R (0x4)
+    ]
+    Alignment: 4
+  }
+]
+DynamicSection [ (7 entries)
+  Tag                Type     Name/Value
+  0x0000000000000006 SYMTAB   0x748
+  0x000000000000000B SYMENT   24 (bytes)
+  0x0000000000000005 STRTAB   0x7F8
+  0x000000000000000A STRSZ    56 (bytes)
+  0x000000006FFFFEF5 GNU_HASH 0x7A8
+  0x0000000000000004 HASH     0x7D0
+  0x0000000000000000 NULL     0x0
+]
+Relocations [
+]
+Symbols [
+  Symbol {
+    Name:  (0)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: None (0x0)
+    Other: 0
+    Section: Undefined (0x0)
+  }
+  Symbol {
+    Name: _DYNAMIC (56)
+    Value: 0x2B80
+    Size: 0
+    Binding: Local (0x0)
+    Type: None (0x0)
+    Other [ (0x2)
+      STV_HIDDEN (0x2)
+    ]
+    Section: .dynamic (0x8)
+  }
+  Symbol {
+    Name: _Z4add1PfS_i (1)
+    Value: 0x1900
+    Size: 152
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other [ (0x3)
+      STV_PROTECTED (0x3)
+    ]
+    Section: .text (0x7)
+  }
+  Symbol {
+    Name: _Z4add1PfS_i.kd (14)
+    Value: 0x840
+    Size: 64
+    Binding: Global (0x1)
+    Type: Object (0x1)
+    Other [ (0x3)
+      STV_PROTECTED (0x3)
+    ]
+    Section: .rodata (0x6)
+  }
+  Symbol {
+    Name: __hip_cuid_4f53712d23e46e (30)
+    Value: 0x3BF0
+    Size: 1
+    Binding: Global (0x1)
+    Type: Object (0x1)
+    Other: 0
+    Section: .bss (0xA)
+  }
+]
+VersionSymbols [
+]
+VersionDefinitions [
+]
+VersionRequirements [
+]
+Groups {
+  There are no group sections in the file.
+}
+HashHistogram {
+  TotalBuckets: 4
+  Chains [
+    Chain {
+      Length: 0
+      Count: 2
+      Percentage:  50.0
+      Coverage:   0.0
+    }
+    Chain {
+      Length: 1
+      Count: 1
+      Percentage:  25.0
+      Coverage:  33.3
+    }
+    Chain {
+      Length: 2
+      Count: 1
+      Percentage:  25.0
+      Coverage: 100.0
+    }
+  ]
+}
+GnuHashHistogram {
+  TotalBuckets: 1
+  Buckets [
+    Bucket {
+      Length: 0
+      Count: 0
+      Percentage:   0.0
+      Coverage:   0.0
+    }
+    Bucket {
+      Length: 1
+      Count: 0
+      Percentage:   0.0
+      Coverage:   0.0
+    }
+    Bucket {
+      Length: 2
+      Count: 0
+      Percentage:   0.0
+      Coverage:   0.0
+    }
+    Bucket {
+      Length: 3
+      Count: 1
+      Percentage: 100.0
+      Coverage: 100.0
+    }
+  ]
+}
+Addrsig [
+]
+NoteSections [
+  NoteSection {
+    Name: .note
+    Offset: 0x238
+    Size: 0x50C
+    Notes [
+      {
+        Owner: AMDGPU
+        Data size: 0x4F6
+        Type: NT_AMDGPU_METADATA (AMDGPU Metadata)
+        AMDGPU Metadata: ---
+amdhsa.kernels:
+  - .args:
+      - .address_space:  global
+        .offset:         0
+        .size:           8
+        .value_kind:     global_buffer
+      - .address_space:  global
+        .offset:         8
+        .size:           8
+        .value_kind:     global_buffer
+      - .offset:         16
+        .size:           4
+        .value_kind:     by_value
+      - .offset:         24
+        .size:           4
+        .value_kind:     hidden_block_count_x
+      - .offset:         28
+        .size:           4
+        .value_kind:     hidden_block_count_y
+      - .offset:         32
+        .size:           4
+        .value_kind:     hidden_block_count_z
+      - .offset:         36
+        .size:           2
+        .value_kind:     hidden_group_size_x
+      - .offset:         38
+        .size:           2
+        .value_kind:     hidden_group_size_y
+      - .offset:         40
+        .size:           2
+        .value_kind:     hidden_group_size_z
+      - .offset:         42
+        .size:           2
+        .value_kind:     hidden_remainder_x
+      - .offset:         44
+        .size:           2
+        .value_kind:     hidden_remainder_y
+      - .offset:         46
+        .size:           2
+        .value_kind:     hidden_remainder_z
+      - .offset:         64
+        .size:           8
+        .value_kind:     hidden_global_offset_x
+      - .offset:         72
+        .size:           8
+        .value_kind:     hidden_global_offset_y
+      - .offset:         80
+        .size:           8
+        .value_kind:     hidden_global_offset_z
+      - .offset:         88
+        .size:           2
+        .value_kind:     hidden_grid_dims
+    .group_segment_fixed_size: 0
+    .kernarg_segment_align: 8
+    .kernarg_segment_size: 280
+    .language:       OpenCL C
+    .language_version:
+      - 2
+      - 0
+    .max_flat_workgroup_size: 1024
+    .name:           _Z4add1PfS_i
+    .private_segment_fixed_size: 0
+    .sgpr_count:     7
+    .sgpr_spill_count: 0
+    .symbol:         _Z4add1PfS_i.kd
+    .uniform_work_group_size: 1
+    .uses_dynamic_stack: false
+    .vgpr_count:     4
+    .vgpr_spill_count: 0
+    .wavefront_size: 32
+    .workgroup_processor_mode: 1
+amdhsa.target:   amdgcn-amd-amdhsa--gfx1152
+amdhsa.version:
+  - 1
+  - 2
+...
+
+      }
+    ]
+  }
+]
+StackSizes [
+]
+
+# ---- llvm-objdump -h -t -r -s ----
+
+/home/boop/code/ml/rdna-playground/hip/reference/rdna_only.hsaco:	file format elf64-amdgpu
+
+Sections:
+Idx Name           Size     VMA              Type
+  0                00000000 0000000000000000 
+  1 .note          0000050c 0000000000000238 DATA
+  2 .dynsym        00000060 0000000000000748 DATA
+  3 .gnu.hash      00000028 00000000000007a8 DATA
+  4 .hash          00000028 00000000000007d0 DATA
+  5 .dynstr        00000038 00000000000007f8 DATA
+  6 .rodata        00000040 0000000000000840 DATA
+  7 .text          00000280 0000000000001900 TEXT
+  8 .dynamic       00000070 0000000000002b80 DATA
+  9 .relro_padding 00000410 0000000000002bf0 BSS
+ 10 .bss           00000001 0000000000003bf0 BSS
+ 11 .comment       0000002c 0000000000000000 
+ 12 .symtab        00000078 0000000000000000 
+ 13 .shstrtab      00000075 0000000000000000 
+ 14 .strtab        00000041 0000000000000000 
+
+SYMBOL TABLE:
+0000000000002b80 l       .dynamic	0000000000000000 .hidden _DYNAMIC
+0000000000001900 g     F .text	0000000000000098 .protected _Z4add1PfS_i
+0000000000000840 g     O .rodata	0000000000000040 .protected _Z4add1PfS_i.kd
+0000000000003bf0 g     O .bss	0000000000000001 __hip_cuid_4f53712d23e46e
+Contents of section .note:
+ 0238 07000000 f6040000 20000000 414d4447  ........ ...AMDG
+ 0248 50550000 83ae616d 64687361 2e6b6572  PU....amdhsa.ker
+ 0258 6e656c73 91de0012 a52e6172 6773dc00  nels......args..
+ 0268 1084ae2e 61646472 6573735f 73706163  ....address_spac
+ 0278 65a6676c 6f62616c a72e6f66 66736574  e.global..offset
+ 0288 00a52e73 697a6508 ab2e7661 6c75655f  ...size...value_
+ 0298 6b696e64 ad676c6f 62616c5f 62756666  kind.global_buff
+ 02a8 657284ae 2e616464 72657373 5f737061  er...address_spa
+ 02b8 6365a667 6c6f6261 6ca72e6f 66667365  ce.global..offse
+ 02c8 7408a52e 73697a65 08ab2e76 616c7565  t...size...value
+ 02d8 5f6b696e 64ad676c 6f62616c 5f627566  _kind.global_buf
+ 02e8 66657283 a72e6f66 66736574 10a52e73  fer...offset...s
+ 02f8 697a6504 ab2e7661 6c75655f 6b696e64  ize...value_kind
+ 0308 a862795f 76616c75 6583a72e 6f666673  .by_value...offs
+ 0318 657418a5 2e73697a 6504ab2e 76616c75  et...size...valu
+ 0328 655f6b69 6e64b468 69646465 6e5f626c  e_kind.hidden_bl
+ 0338 6f636b5f 636f756e 745f7883 a72e6f66  ock_count_x...of
+ 0348 66736574 1ca52e73 697a6504 ab2e7661  fset...size...va
+ 0358 6c75655f 6b696e64 b4686964 64656e5f  lue_kind.hidden_
+ 0368 626c6f63 6b5f636f 756e745f 7983a72e  block_count_y...
+ 0378 6f666673 657420a5 2e73697a 6504ab2e  offset ..size...
+ 0388 76616c75 655f6b69 6e64b468 69646465  value_kind.hidde
+ 0398 6e5f626c 6f636b5f 636f756e 745f7a83  n_block_count_z.
+ 03a8 a72e6f66 66736574 24a52e73 697a6502  ..offset$..size.
+ 03b8 ab2e7661 6c75655f 6b696e64 b3686964  ..value_kind.hid
+ 03c8 64656e5f 67726f75 705f7369 7a655f78  den_group_size_x
+ 03d8 83a72e6f 66667365 7426a52e 73697a65  ...offset&..size
+ 03e8 02ab2e76 616c7565 5f6b696e 64b36869  ...value_kind.hi
+ 03f8 6464656e 5f67726f 75705f73 697a655f  dden_group_size_
+ 0408 7983a72e 6f666673 657428a5 2e73697a  y...offset(..siz
+ 0418 6502ab2e 76616c75 655f6b69 6e64b368  e...value_kind.h
+ 0428 69646465 6e5f6772 6f75705f 73697a65  idden_group_size
+ 0438 5f7a83a7 2e6f6666 7365742a a52e7369  _z...offset*..si
+ 0448 7a6502ab 2e76616c 75655f6b 696e64b2  ze...value_kind.
+ 0458 68696464 656e5f72 656d6169 6e646572  hidden_remainder
+ 0468 5f7883a7 2e6f6666 7365742c a52e7369  _x...offset,..si
+ 0478 7a6502ab 2e76616c 75655f6b 696e64b2  ze...value_kind.
+ 0488 68696464 656e5f72 656d6169 6e646572  hidden_remainder
+ 0498 5f7983a7 2e6f6666 7365742e a52e7369  _y...offset...si
+ 04a8 7a6502ab 2e76616c 75655f6b 696e64b2  ze...value_kind.
+ 04b8 68696464 656e5f72 656d6169 6e646572  hidden_remainder
+ 04c8 5f7a83a7 2e6f6666 73657440 a52e7369  _z...offset@..si
+ 04d8 7a6508ab 2e76616c 75655f6b 696e64b6  ze...value_kind.
+ 04e8 68696464 656e5f67 6c6f6261 6c5f6f66  hidden_global_of
+ 04f8 66736574 5f7883a7 2e6f6666 73657448  fset_x...offsetH
+ 0508 a52e7369 7a6508ab 2e76616c 75655f6b  ..size...value_k
+ 0518 696e64b6 68696464 656e5f67 6c6f6261  ind.hidden_globa
+ 0528 6c5f6f66 66736574 5f7983a7 2e6f6666  l_offset_y...off
+ 0538 73657450 a52e7369 7a6508ab 2e76616c  setP..size...val
+ 0548 75655f6b 696e64b6 68696464 656e5f67  ue_kind.hidden_g
+ 0558 6c6f6261 6c5f6f66 66736574 5f7a83a7  lobal_offset_z..
+ 0568 2e6f6666 73657458 a52e7369 7a6502ab  .offsetX..size..
+ 0578 2e76616c 75655f6b 696e64b0 68696464  .value_kind.hidd
+ 0588 656e5f67 7269645f 64696d73 b92e6772  en_grid_dims..gr
+ 0598 6f75705f 7365676d 656e745f 66697865  oup_segment_fixe
+ 05a8 645f7369 7a6500b6 2e6b6572 6e617267  d_size...kernarg
+ 05b8 5f736567 6d656e74 5f616c69 676e08b5  _segment_align..
+ 05c8 2e6b6572 6e617267 5f736567 6d656e74  .kernarg_segment
+ 05d8 5f73697a 65cd0118 a92e6c61 6e677561  _size.....langua
+ 05e8 6765a84f 70656e43 4c2043b1 2e6c616e  ge.OpenCL C..lan
+ 05f8 67756167 655f7665 7273696f 6e920200  guage_version...
+ 0608 b82e6d61 785f666c 61745f77 6f726b67  ..max_flat_workg
+ 0618 726f7570 5f73697a 65cd0400 a52e6e61  roup_size.....na
+ 0628 6d65ac5f 5a346164 64315066 535f69bb  me._Z4add1PfS_i.
+ 0638 2e707269 76617465 5f736567 6d656e74  .private_segment
+ 0648 5f666978 65645f73 697a6500 ab2e7367  _fixed_size...sg
+ 0658 70725f63 6f756e74 07b12e73 6770725f  pr_count...sgpr_
+ 0668 7370696c 6c5f636f 756e7400 a72e7379  spill_count...sy
+ 0678 6d626f6c af5f5a34 61646431 5066535f  mbol._Z4add1PfS_
+ 0688 692e6b64 b82e756e 69666f72 6d5f776f  i.kd..uniform_wo
+ 0698 726b5f67 726f7570 5f73697a 6501b32e  rk_group_size...
+ 06a8 75736573 5f64796e 616d6963 5f737461  uses_dynamic_sta
+ 06b8 636bc2ab 2e766770 725f636f 756e7404  ck...vgpr_count.
+ 06c8 b12e7667 70725f73 70696c6c 5f636f75  ..vgpr_spill_cou
+ 06d8 6e7400af 2e776176 6566726f 6e745f73  nt...wavefront_s
+ 06e8 697a6520 b92e776f 726b6772 6f75705f  ize ..workgroup_
+ 06f8 70726f63 6573736f 725f6d6f 646501ad  processor_mode..
+ 0708 616d6468 73612e74 61726765 74ba616d  amdhsa.target.am
+ 0718 6467636e 2d616d64 2d616d64 6873612d  dgcn-amd-amdhsa-
+ 0728 2d676678 31313532 ae616d64 6873612e  -gfx1152.amdhsa.
+ 0738 76657273 696f6e92 01020000           version.....
+Contents of section .dynsym:
+ 0748 00000000 00000000 00000000 00000000  ................
+ 0758 00000000 00000000 01000000 12030700  ................
+ 0768 00190000 00000000 98000000 00000000  ................
+ 0778 0e000000 11030600 40080000 00000000  ........@.......
+ 0788 40000000 00000000 1e000000 11000a00  @...............
+ 0798 f03b0000 00000000 01000000 00000000  .;..............
+Contents of section .gnu.hash:
+ 07a8 01000000 01000000 01000000 1a000000  ................
+ 07b8 01080000 00000034 01000000 3c1f7b2e  .......4....<.{.
+ 07c8 fa03bdf1 418bd402                    ....A...
+Contents of section .hash:
+ 07d0 04000000 04000000 02000000 03000000  ................
+ 07e0 00000000 00000000 00000000 00000000  ................
+ 07f0 00000000 01000000                    ........
+Contents of section .dynstr:
+ 07f8 005f5a34 61646431 5066535f 69005f5a  ._Z4add1PfS_i._Z
+ 0808 34616464 31506653 5f692e6b 64005f5f  4add1PfS_i.kd.__
+ 0818 6869705f 63756964 5f346635 33373132  hip_cuid_4f53712
+ 0828 64323365 34366500                    d23e46e.
+Contents of section .rodata:
+ 0840 00000000 00000000 18010000 00000000  ................
+ 0850 c0100000 00000000 00000000 00000000  ................
+ 0860 00000000 00000000 00000000 00000000  ................
+ 0870 0000af60 84000000 08040000 00000000  ...`............
+Contents of section .text:
+ 1900 010085bf c00000f4 240000f8 000100f4  ........$.......
+ 1910 100000f8 07fc89bf 03ff038b ffff0000  ................
+ 1920 a90087bf 007cfed6 02060004 7e0082be  .....|......~...
+ 1930 7e00c4d4 04000200 1400a5bf 000008f4  ~...............
+ 1940 000000f8 9f000234 a10087bf 00003cd7  .......4......<.
+ 1950 82000200 07fc89bf 026a00d7 00000200  .........j......
+ 1960 020087bf 01020640 006a00d7 02000200  .......@.j......
+ 1970 03020240 000052dc 02007c02 f70389bf  ...@..R...|.....
+ 1980 f2040406 00006adc 00027c00 000080bf  ......j...|.....
+ 1990 0300b6bf 0000b0bf 00009fbf 00009fbf  ................
+ 19a0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 19b0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 19c0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 19d0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 19e0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 19f0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1a00 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1a10 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1a20 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1a30 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1a40 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1a50 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1a60 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1a70 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1a80 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1a90 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1aa0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1ab0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1ac0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1ad0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1ae0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1af0 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1b00 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1b10 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1b20 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1b30 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1b40 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1b50 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1b60 00009fbf 00009fbf 00009fbf 00009fbf  ................
+ 1b70 00009fbf 00009fbf 00009fbf 00009fbf  ................
+Contents of section .dynamic:
+ 2b80 06000000 00000000 48070000 00000000  ........H.......
+ 2b90 0b000000 00000000 18000000 00000000  ................
+ 2ba0 05000000 00000000 f8070000 00000000  ................
+ 2bb0 0a000000 00000000 38000000 00000000  ........8.......
+ 2bc0 f5feff6f 00000000 a8070000 00000000  ...o............
+ 2bd0 04000000 00000000 d0070000 00000000  ................
+ 2be0 00000000 00000000 00000000 00000000  ................
+Contents of section .relro_padding:
+<skipping contents of bss section at [2bf0, 3000)>
+Contents of section .bss:
+<skipping contents of bss section at [3bf0, 3bf1)>
+Contents of section .comment:
+ 0000 636c616e 67207665 7273696f 6e203139  clang version 19
+ 0010 2e302e30 67697400 4c696e6b 65723a20  .0.0git.Linker: 
+ 0020 4c4c4420 31392e30 2e300000           LLD 19.0.0..
+Contents of section .symtab:
+ 0000 00000000 00000000 00000000 00000000  ................
+ 0010 00000000 00000000 38000000 00020800  ........8.......
+ 0020 802b0000 00000000 00000000 00000000  .+..............
+ 0030 01000000 12030700 00190000 00000000  ................
+ 0040 98000000 00000000 0e000000 11030600  ................
+ 0050 40080000 00000000 40000000 00000000  @.......@.......
+ 0060 1e000000 11000a00 f03b0000 00000000  .........;......
+ 0070 01000000 00000000                    ........
+Contents of section .shstrtab:
+ 0000 002e6e6f 7465002e 64796e73 796d002e  ..note..dynsym..
+ 0010 676e752e 68617368 002e6861 7368002e  gnu.hash..hash..
+ 0020 64796e73 7472002e 726f6461 7461002e  dynstr..rodata..
+ 0030 74657874 002e6479 6e616d69 63002e72  text..dynamic..r
+ 0040 656c726f 5f706164 64696e67 002e6273  elro_padding..bs
+ 0050 73002e63 6f6d6d65 6e74002e 73796d74  s..comment..symt
+ 0060 6162002e 73687374 72746162 002e7374  ab..shstrtab..st
+ 0070 72746162 00                          rtab.
+Contents of section .strtab:
+ 0000 005f5a34 61646431 5066535f 69005f5a  ._Z4add1PfS_i._Z
+ 0010 34616464 31506653 5f692e6b 64005f5f  4add1PfS_i.kd.__
+ 0020 6869705f 63756964 5f346635 33373132  hip_cuid_4f53712
+ 0030 64323365 34366500 5f44594e 414d4943  d23e46e._DYNAMIC
+ 0040 00                                   .
