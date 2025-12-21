@@ -39,7 +39,7 @@ OUT_BUNDLE="$OUT_DIR/reference.hsaco"
 OUT_HSACO="$OUT_DIR/rdna_only.hsaco"
 OUT_HSACO_TXT="$OUT_DIR/rdna_only.hsaco.txt"
 OUT_DISASM="$OUT_DIR/rdna.disasm.txt"
-OUT_RDNA_S="$OUT_DIR/rdna.s"
+OUT_RDNA_S="$OUT_DIR/rdna.rdna"
 
 rm -f "$OUT_BUNDLE" "$OUT_HSACO" "$OUT_HSACO_TXT" "$OUT_DISASM" "$OUT_RDNA_S"
 
